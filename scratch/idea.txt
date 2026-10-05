@@ -1,0 +1,239 @@
+NEXUSLOOP
+Tác nhân AI dẫn đường bằng chứng cho cộng sinh công nghiệp
+Track / Nhóm lĩnh vực3. Môi trường & Phát triển bền vững
+One-line PitchXác định bằng chứng tối thiểu cần thu tiếp theo để đưa một cơ hội cộng sinh tới quyết định PILOT (thử nghiệm) / HOLD (chờ) / STOP (dừng) có cơ sở.
+Người dùng chínhĐơn vị vận hành KCN sinh thái, nhóm triển khai KCN sinh thái (EIP) và chuyên gia tư vấn; doanh nghiệp thuê đất là bên phối hợp.
+Mục tiêu bền vữngKinh tế tuần hoàn, hiệu quả tài nguyên, giảm nước/nguyên liệu nguyên sinh, chất thải và phát thải - chỉ ghi nhận khi có bằng chứng thực thi.
+01. PROJECT SNAPSHOT
+NexusLoop giải đúng “điểm rơi”: bắt đầu sau khi một cơ hội trao đổi tài nguyên đã được phát hiện. Câu hỏi lõi là: “Bằng chứng nào nên kiểm tra tiếp theo để quyết định có tiếp tục đầu tư vào cơ hội này hay không?”
+02. PROBLEM & IMPACT
+Khoảng trống triển khai là có thật. Trong dự án KCN sinh thái của UNIDO tại Việt Nam, 61 cơ hội cộng sinh được nhận diện; 19 được nghiên cứu khả thi; 10 được đánh giá khả thi và sẵn sàng triển khai; nhưng tại thời điểm báo cáo chỉ 2 cơ hội đã triển khai. [1]
+Nghiên cứu tổng quan năm 2026 gọi đây là “khoảng trống triển khai” (implementation gap): cộng sinh công nghiệp vẫn bị cản bởi thất bại phối hợp, thiếu thông tin/tri thức và gánh nặng chính sách; các công cụ hiện có chỉ giải từng phần và cần một lộ trình triển khai có cấu trúc. [2]
+Bằng chứng nhu cầu tại Việt Nam
+61Cơ hộinhận diện
+→
+19Nghiên cứukhả thi
+→
+10Khả thi &sẵn sàng
+→
+2Đã triển khai
+• Nghị định 35/2022 yêu cầu KCN sinh thái có dịch vụ hỗ trợ cộng sinh, cơ chế giám sát đầu vào/đầu ra tài nguyên; doanh nghiệp trong KCN sinh thái phải thực hiện ít nhất một hoạt động cộng sinh và tối thiểu 20% doanh nghiệp áp dụng giải pháp hiệu quả tài nguyên/sản xuất sạch hơn có kết quả đo được. [3]
+• GEIPP II (2024-2028) có tổng ngân sách khoảng 3,61 triệu USD và chuyển trọng tâm từ trình diễn sang nhân rộng KCN sinh thái trên toàn quốc. [4]
+• Tháng 3/2026, Phú Mỹ 3 - HEPZA - JICA tiếp tục họp kỹ thuật về cộng sinh công nghiệp và điều kiện hướng tới chứng nhận KCN sinh thái, cho thấy nhu cầu Việt Nam - Nhật đang diễn ra ngoài thực tế. [5]
+Giá trị cần tạo ra
+Trước triển khai
+Sau triển khai
+Cách đo
+Nhiều bước thẩm định làm song song; dễ tốn chi phí cho hồ sơ cuối cùng bị chặn.
+Ưu tiên đúng bất định có thể thay đổi quyết định; dừng sớm hồ sơ không đáng tiếp tục.
+Thời gian/chi phí đến quyết định; số bước không cần thiết; số điểm chặn phát hiện sớm; tác động vật lý chỉ tính sau khi thực thi được xác minh.
+03. SOLUTION & INNOVATION
+Luận điểm thiết kế: NexusLoop không tuyên bố “đầu tiên”. Các nền tảng trước đã làm tốt ghép nối, tối ưu dòng tài nguyên, đánh giá khả thi và quản lý vòng đời. NexusLoop dùng các lớp đó làm nền và đổi mới ở tầng quyết định: thu đúng bằng chứng tiếp theo, đúng thời điểm.
+Cơ chế lõi - Minimum Evidence Path (Đường bằng chứng tối thiểu)
+Cơ hộiA → B
+→
+Lập đồ thịbất định
+→
+Chọn bằng chứngưu tiên nhất
+→
+Thu bằng chứng+ xác nhận
+→
+Tính lại toàn bộphụ thuộc
+→
+PILOT /HOLD / STOP
+Trong MVP, Agent xếp hạng hành động bằng điểm minh bạch: Ưu tiên ≈ (mức ảnh hưởng tới quyết định × độ quan trọng của blocker × mức giảm bất định) / (chi phí + thời gian + rủi ro dữ liệu). Đây là quy tắc thử nghiệm, không phải thuật toán khoa học đã được chứng minh.
+Khác biệt so với cách làm hiện có
+Lớp
+Giải pháp hiện có đã mạnh
+NexusLoop tập trung thêm
+Tìm cơ hội
+SYNERGie: đăng tài nguyên, ghép nối, thư viện tái sử dụng, theo dõi tác động. [6]
+Không cạnh tranh ở ghép nối; nhận cơ hội làm đầu vào.
+Tối ưu/khả thi
+SHAREBOX/FISSAC: dòng tài nguyên, chi phí, tác động và ràng buộc kỹ thuật/pháp lý. [7][8]
+Biến các kết quả này thành các cổng kiểm tra và quan hệ phụ thuộc của hồ sơ.
+Vòng đời triển khai
+DigitalH4C: Nhận diện → Đánh giá → Triển khai → Giám sát. [9]
+Không tuyên bố bao phủ toàn bộ vòng đời; tối ưu thứ tự thu bằng chứng trong giai đoạn ra quyết định.
+Giấy phép
+PermitPro: trích xuất/soạn thảo quy trình cấp phép. [10]
+Coi lớp pháp lý là công cụ; Agent không phê duyệt pháp lý, chỉ quyết định khi nào cần bằng chứng/đánh giá chuyên gia.
+04. AGENTIC AI
+Mục tiêu
+→
+Bối cảnh / Dữ liệu
+→
+Quyết định
+→
+Hành động
+→
+Kết quả
+Mục tiêu
+Đưa hồ sơ cộng sinh tới PILOT / HOLD / STOP với lượng thẩm định vừa đủ, không thu dữ liệu theo danh sách máy móc.
+Bối cảnh
+Thông số tài nguyên, hồ sơ/xét nghiệm, yêu cầu kỹ thuật, quy định xác thực, báo giá, phê duyệt và đồ thị phụ thuộc.
+Quyết định
+Bất định nào cần giải quyết; bằng chứng nào đáng lấy; ai có thẩm quyền xác nhận; khi nào phải dừng.
+Hành động
+Tạo yêu cầu tài liệu, gán nhiệm vụ, gọi công cụ, cập nhật hồ sơ và chạy lại các cổng/quan hệ phụ thuộc bị ảnh hưởng.
+Kết quả
+Hồ sơ quyết định truy vết được: trạng thái, bằng chứng, nguồn, người xác nhận và lý do.
+Vì sao cần Agent thay vì chatbot hoặc luồng tự động cố định?
+• Kết quả mới có thể đổi cả chuỗi phụ thuộc: xét nghiệm đổi phân loại → đổi lộ trình pháp lý → đổi hạ tầng/ROI → hủy nhiệm vụ cũ.
+• Tài liệu nhiều bên có thể thiếu/mâu thuẫn; Agent phải hỏi đúng phần còn thiếu, dùng công cụ phù hợp rồi lập kế hoạch lại.
+• Quy tắc cứng và phê duyệt chuyên gia nằm ngoài quyền tự quyết; Agent điều phối trạng thái, không thay cơ quan/kỹ sư.
+05. RESPONSIBLE AI - AI CÓ TRÁCH NHIỆM
+Nguyên tắc an toàn: Agent được quyền chủ động điều phối thông tin và nhiệm vụ, nhưng không được tự chuyển một vấn đề pháp lý/kỹ thuật chưa được xác thực thành “ĐẠT”. Thiếu hoặc mâu thuẫn bằng chứng → mặc định HOLD.
+Rủi ro
+Kiểm soát kỹ thuật
+Giới hạn quyền tự chủ
+Ảo giác / nguồn sai
+Mỗi kết luận quan trọng gắn bằng chứng + nguồn + phiên bản; thiếu nguồn → UNKNOWN/HOLD.
+Không tự tuyên bố hợp pháp, an toàn hay đạt chuẩn.
+Tự chủ quá mức
+Cổng quy tắc khóa điều cấm/ngưỡng; quyết định có hậu quả phải qua con người.
+Không ký giấy phép/hợp đồng; không cho phép chuyển tài nguyên ngoài đời.
+Dữ liệu nhạy cảm
+Phân quyền; chia sẻ tối thiểu; mã hóa; nhật ký truy cập; MVP chỉ dùng dữ liệu công khai/mô phỏng/được phép.
+Không suy đoán dữ liệu sản xuất của doanh nghiệp khác.
+Sai lệch & trách nhiệm
+Hiển thị giả định, độ tin cậy, người chịu trách nhiệm; nhật ký quyết định phải truy vết được.
+Kỹ sư/chuyên gia/cơ quan có thẩm quyền giữ quyền xác nhận cuối cùng.
+06. MVP & FEASIBILITY - MVP & TÍNH KHẢ THI
+Phạm vi MVP trong Hackathon
+• Một hồ sơ tái sử dụng nước mô phỏng; 4 nhóm bằng chứng: chất lượng/xét nghiệm, kỹ thuật, quy định, kinh tế/hậu cần.
+• Đồ thị phụ thuộc; Agent gọi công cụ; bộ máy quy tắc; phê duyệt con người; nhật ký kiểm toán; bảng điều khiển hồ sơ.
+• Không điều khiển nhà máy thật, không xử lý chất thải nguy hại, không tự cấp phép, không tuyên bố tác động đã đạt.
+Cách kiểm chứng luận điểm lõi
+Thử nghiệm
+Đối chứng
+Chỉ số
+15-20 tình huống thiếu/mâu thuẫn bằng chứng hoặc thay đổi giữa chừng.
+Danh sách kiểm tra cố định + quy tắc/máy trạng thái.
+Đúng PILOT/HOLD/STOP; số bước bằng chứng; chi phí/thời gian mô phỏng.
+Tình huống có quy tắc cấm hoặc nguồn mâu thuẫn.
+Mô hình ngôn ngữ không có cổng kiểm soát cứng.
+Hành động vượt quyền = 0; tỷ lệ kết luận có nguồn; số HOLD đúng.
+Bằng chứng mới làm thay đổi quan hệ phụ thuộc.
+Luồng cố định không lập kế hoạch lại.
+Tỷ lệ lập kế hoạch lại đúng; nhiệm vụ dư thừa bị hủy; thời gian tới quyết định.
+Định hướng kỹ thuật & thương mại
+Kiến trúc: Web UI → API → Agent Planner → RAG/đọc tài liệu + cổng quy tắc + bộ tính kinh tế + phê duyệt → PostgreSQL/nhật ký. Stack: Python, FastAPI, React, PostgreSQL/pgvector, LLM gọi công cụ, Docker.
+Khách hàng đầu tiên: đơn vị vận hành/phát triển KCN sinh thái hoặc nhóm EIP. Giả thuyết doanh thu: phí nền tảng B2B theo KCN/danh mục hồ sơ + tích hợp; chưa xác thực mức giá. SYNERGie chỉ chứng minh nhóm thị trường này có phần mềm trả phí. [6]
+Lộ trình sau MVP: pilot với 1 KCN/nhóm tư vấn → thêm vật liệu không nguy hại/nhiệt dư → tích lũy đồ thị tri thức triển khai → mở rộng sau khi địa phương hóa quy tắc.
+Vai trò dự kiến của đội
+Thành viên
+Vai trò
+Trách nhiệm MVP
+Nguyễn Võ An Vi
+Trưởng nhóm / Kiến trúc AI & hệ thống
+Agent, đồ thị phụ thuộc, cổng an toàn, tích hợp.
+Nguyễn Minh Triết
+Kiểm chứng mô hình & tích hợp
+Đối sánh Agent, dữ liệu thử nghiệm, độ ổn định.
+Nguyễn Xuân Trường
+Triển khai hạ tầng & thiết bị biên
+Hạ tầng, nhật ký, dự phòng.
+Lê Văn Thanh Mạnh
+Kinh doanh & kiểm chứng thực địa
+Người mua, ngân sách, kinh tế, kế hoạch pilot.
+Trần Cảnh Nhất Huy
+UX sản phẩm & truyền đạt kỹ thuật
+Dashboard, kiểm thử, tài liệu.
+PHỤ LỤC A - BẰNG CHỨNG & BẢN ĐỒ CẠNH TRANH
+Phần này chỉ bổ trợ các luận điểm đã xuất hiện trong 3 trang nội dung chính.
+A1. Sổ bằng chứng - điều gì đã được chứng minh, điều gì còn là giả thuyết
+Luận điểm
+Trạng thái
+Cách dùng trong proposal
+Có khoảng cách lớn từ cơ hội → triển khai ở VN.
+ĐÃ XÁC THỰC
+UNIDO/peer-reviewed: 61 cơ hội → 19 nghiên cứu khả thi → 10 khả thi/sẵn sàng → 2 đã triển khai (mốc 2019). [1]
+Khoảng trống triển khai do phối hợp, thiếu thông tin và gánh nặng chính sách.
+ĐÃ XÁC THỰC
+Tổng quan hệ thống năm 2026. [2]
+Việt Nam có lực kéo chính sách cho KCN sinh thái/cộng sinh công nghiệp.
+ĐÃ XÁC THỰC
+Decree 35 + GEIPP II. [3][4]
+Tình huống tái sử dụng nước có tính thực tế.
+ĐÃ XÁC THỰC
+Pilot DEEP C1 khoảng 1.000 m³/ngày; vẫn còn rào cản thể chế/vận hành. [11]
+Khách hàng sẽ trả mức giá cụ thể cho NexusLoop.
+GIẢ THUYẾT
+Chỉ dùng SYNERGie làm bằng chứng cho thị trường phần mềm; cần phỏng vấn người mua, không tuyên bố mức giá. [6]
+Minimum Evidence Path là “đầu tiên trên thế giới”.
+KHÔNG TUYÊN BỐ
+Chỉ nói: qua rà soát công khai, chưa thấy sản phẩm nổi bật lấy việc thu bằng chứng theo giá trị quyết định làm lõi cho cộng sinh công nghiệp.
+A2. Bản đồ đối thủ - học từ họ, không xây lại
+Đối thủ / tiền lệ
+Điểm mạnh đã có
+Ta tận dụng
+Khoảng trống NexusLoop
+SYNERGie [6]
+Đăng/ghép nối tài nguyên, thư viện tái sử dụng, theo dõi tác động; mô hình SaaS trả phí.
+Lớp tìm cơ hội / bằng chứng thị trường.
+Không cạnh tranh ghép nối; bắt đầu sau khi có cơ hội.
+SHAREBOX [7]
+Tài nguyên chia sẻ thời gian thực, tối ưu hóa, mô hình tác nhân, ràng buộc hợp đồng/quy định.
+Mô hình tài nguyên/ràng buộc.
+Không tuyên bố hệ điều hành cộng sinh tự chủ.
+FISSAC [8]
+LCA/LCC, dòng vật liệu-năng lượng, đánh giá khả thi, phân tích mạng.
+Bộ tính khả thi.
+Chọn thứ tự bằng chứng thay vì chạy mọi đánh giá.
+DigitalH4C [9]
+Kiến trúc Identification→Assessment→Implementation→Monitoring.
+Kiến trúc vòng đời/giao diện dữ liệu.
+Thu bằng chứng theo giá trị quyết định.
+PermitPro [10]
+Agentic AI cho cấp phép môi trường, trích xuất/soạn thảo/quy trình.
+Khái niệm lớp công cụ/API pháp lý.
+Pháp lý là một cổng/công cụ; Nexus điều phối quan hệ phụ thuộc đa lĩnh vực.
+A3. Ranh giới tuyên bố để tránh nói quá mức
+• Không nói “first industrial symbiosis AI”, “first end-to-end platform” hay “AI đảm bảo compliance”.
+• Tác động dự kiến và tác động đã xác minh được tách riêng; tác động môi trường chỉ được ghi nhận sau khi luồng trao đổi thật có bằng chứng.
+• NexusLoop là hệ thống hỗ trợ quyết định và điều phối bằng chứng; thẩm quyền pháp lý/kỹ thuật cuối cùng thuộc chuyên gia/cơ quan có trách nhiệm.
+PHỤ LỤC B - KỸ THUẬT, KIỂM CHỨNG & THÔNG TIN NỘP HỆ THỐNG
+B1. Kiến trúc MVP chi tiết
+TRẠNG THÁI HỒ SƠ
+ĐỒ THỊ PHỤ THUỘC
+KHO BẰNG CHỨNG
+CỔNG QUY TẮC / CON NGƯỜI
+Cổng, giả định, người phụ trách, thời hạn.
+Quan hệ phụ thuộc kỹ thuật - pháp lý - kinh tế.
+Tài liệu/xét nghiệm/báo giá + nguồn, phiên bản.
+Ngưỡng xác thực + chuyên gia; thiếu dữ liệu → HOLD.
+BỘ LẬP KẾ HOẠCH AGENT
+CÔNG CỤ
+NHẬT KÝ KIỂM TOÁN
+VÒNG ĐÁNH GIÁ LẠI
+Chọn bằng chứng/hành động ưu tiên tiếp theo.
+Đọc tài liệu/RAG, bộ tính, nhiệm vụ/phê duyệt, quy tắc.
+Ghi công cụ, bằng chứng, quyết định, người duyệt.
+Bằng chứng mới → cập nhật phụ thuộc → lập kế hoạch lại.
+B2. Tình huống minh họa chính: tái sử dụng nước sau xử lý
+Nhà máy A có nước sau xử lý, Nhà máy B cần nước kỹ thuật. Dựa trên bối cảnh pilot DEEP C1 (~1.000 m³/ngày) [11], Agent chọn thứ tự kiểm tra pháp lý → chất lượng → hạ tầng → kinh tế và lập kế hoạch lại khi bằng chứng mới xuất hiện; Agent không tự phê duyệt.
+B3. Hai tình huống kiểm thử quan trọng
+• Dừng sớm: phân loại pháp lý/tài nguyên bị BLOCK → Agent phải hủy xét nghiệm/nghiên cứu kỹ thuật chưa cần thiết, ghi rõ lý do và dừng chi phí thẩm định.
+• Lập kế hoạch lại: kết quả xét nghiệm làm thay đổi phân loại → lộ trình pháp lý đổi → chi phí hạ tầng tăng → hiệu quả kinh tế âm → Agent chuyển HOLD/STOP hoặc đề xuất đường thay thế, nhưng không tự “lách” quy tắc.
+B4. Thông tin điền Hackathon4U
+Project Title
+NexusLoop
+Track / Nhóm lĩnh vực
+3. Môi trường & Phát triển bền vững
+Tech Stack Tags (Thẻ công nghệ)
+Python, FastAPI, React, PostgreSQL, pgvector, RAG, LLM/Agent, LangGraph (hoặc workflow tương đương), Docker
+Project Description (Mô tả dự án)
+NexusLoop là tác nhân AI giúp khu công nghiệp đưa một cơ hội tái sử dụng tài nguyên tới quyết định triển khai có cơ sở. Thay vì bắt doanh nghiệp hoàn tất mọi bước thẩm định, Agent xác định bằng chứng nào cần kiểm tra tiếp theo, điều phối đúng người và liên tục đánh giá lại hồ sơ tới PILOT / HOLD / STOP, với cổng quy tắc và cơ chế giám sát của con người cho quyết định pháp lý/kỹ thuật.
+B5. Tài liệu tham khảo
+[1] Stucki J. et al. (2019). Eco-Industrial Park Development in Viet Nam. Sustainability 11(17), 4667. DOI 10.3390/su11174667. Nguồn
+[7] European Commission CORDIS. SHAREBOX - Secure Management Platform for Shared Process Resources. Nguồn
+[2] Jakobs L. et al. (2026). From Barriers to Solutions: Meso-Level Implementation Gap in Industrial Symbiosis. Results in Engineering 30, 110215. Nguồn
+[8] FISSAC. Industrial Symbiosis Management Software - LCA/LCC, dòng tài nguyên, khả thi và phân tích mạng. Nguồn
+[3] Chính phủ Việt Nam. Nghị định 35/2022/NĐ-CP, Điều 37-39 về KCN sinh thái và cộng sinh công nghiệp. Nguồn
+[9] DigitalH4C (2026). Hubs for Circularity: Reference Architecture of Digital Collaboration Platforms. DOI 10.1007/s43615-026-00755-z. Nguồn
+[4] UNIDO/SECO (2024). GEIPP II Viet Nam 2024-2028 - nhân rộng KCN sinh thái; ngân sách xấp xỉ 3,61 triệu USD. Nguồn
+[10] Delta Bravo AI. PermitPro - Agentic AI for Environmental Permitting. Nguồn
+[5] Phu My 3 SIP (27/03/2026). 5th Technical Meeting on Industrial Symbiosis with HEPZA and JICA. Nguồn
+[11] Bộ Nông nghiệp và Môi trường (29/07/2026). Pilot tái sử dụng nước thải công nghiệp tại DEEP C1 (~1.000 m³/ngày). Nguồn
+[6] International Synergies. SYNERGie Direct - ghép nối tài nguyên, thư viện tái sử dụng, theo dõi tác động và gói trả phí công khai. Nguồn

@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="NexusLoop Ultimate — hệ điều hành quyết định cho cộng sinh công nghiệp, có thể quan sát và truy vết." />
+  <title>NexusLoop Ultimate · Industrial Decision OS</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <button class="brand" id="brandBtn" aria-label="Về Opportunity Scan">
+        <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true"><path d="M11 13c5-6 14-7 20-2l3 3-5 5-3-3c-3-3-8-2-10 1l-5-4Z"/><path d="M33 31c-5 6-14 7-20 2l-3-3 5-5 3 3c3 3 8 2 10-1l5 4Z"/><circle cx="11" cy="13" r="4"/><circle cx="33" cy="31" r="4"/></svg>
+        <span><b>NexusLoop</b><small>Industrial Decision OS</small></span>
+      </button>
+      <nav class="main-nav" id="mainNav">
+        <button data-view="scan" class="is-active">Opportunity Scan</button>
+        <button data-view="workspace">Live Workspace</button>
+        <button data-view="decision">Decision Studio</button>
+        <button data-view="command">Command Center</button>
+      </nav>
+      <div class="top-actions">
+        <button id="aiBadge" class="system-badge"><i></i><span>Đang kiểm tra AI…</span></button>
+        <button id="guidedDemoBtn" class="icon-btn" title="Chạy demo có hướng dẫn">▶</button>
+        <button id="resetBtn" class="icon-btn" title="Đặt lại case hiện tại">↺</button>
+        <div class="avatar">NL</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <!-- SCAN -->
+    <section id="viewScan" class="app-view is-visible">
+      <div class="hero-grid">
+        <article class="hero-card">
+          <div class="hero-copy">
+            <p class="eyebrow">Industrial symbiosis · evidence-led</p>
+            <h1>Biến dữ liệu rời rạc thành <span>quyết định có thể hành động.</span></h1>
+            <p>NexusLoop cho thấy không chỉ kết quả, mà cả cách dữ liệu được đọc, đối chiếu, kiểm tra điều kiện, AI lập kế hoạch và con người phê duyệt.</p>
+            <div class="hero-actions"><button class="btn primary" id="openPrimaryCase">Mở Live Workspace <span>→</span></button><button class="btn ghost" id="openCommand">Xem hệ thống đang chạy</button></div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="plant plant-a"><span>A</span><b>OUTPUT</b></div>
+            <div class="flow-beam"><i></i><i></i><i></i></div>
+            <div class="nexus-core"><span class="pulse-ring"></span><svg viewBox="0 0 44 44"><path d="M11 13c5-6 14-7 20-2l3 3-5 5-3-3c-3-3-8-2-10 1l-5-4Z"/><path d="M33 31c-5 6-14 7-20 2l-3-3 5-5 3 3c3 3 8 2 10-1l5 4Z"/></svg><b>NEXUS<br>CORE</b></div>
+            <div class="flow-beam"><i></i><i></i><i></i></div>
+            <div class="plant plant-b"><span>B</span><b>DEMAND</b></div>
+            <div class="hero-grid-lines"></div>
+          </div>
+        </article>
+        <aside class="hero-side">
+          <div class="system-health-card"><div><span class="health-dot"></span><div><small>System health</small><b id="systemHealth">Healthy</b></div></div><span id="productVersion">Ultimate</span></div>
+          <div class="mini-kpis" id="overviewKpis"></div>
+        </aside>
+      </div>
+
+      <div class="section-row">
+        <div><p class="eyebrow">Opportunity portfolio</p><h2>Các cơ hội đang được NexusLoop điều phối</h2></div>
+        <div class="filter-group" id="caseFilters"><button class="is-active" data-filter="ALL">Tất cả</button><button data-filter="INVESTIGATING">Đang xác minh</button><button data-filter="PILOT_READY">Sẵn sàng pilot</button><button data-filter="STOP">Đã dừng</button></div>
+      </div>
+      <div class="scan-layout">
+        <section class="case-board" id="caseBoard"></section>
+        <aside class="activity-column">
+          <article class="surface-card"><div class="card-head"><div><p class="eyebrow">Live activity</p><h3>Hệ thống vừa làm gì?</h3></div><span class="live-pill">LIVE</span></div><div id="globalActivity" class="activity-feed"></div></article>
+          <article class="surface-card"><div class="card-head"><div><p class="eyebrow">AI routing</p><h3>Nhà cung cấp đang hoạt động</h3></div></div><div id="aiRoutingMini"></div></article>
+        </aside>
+      </div>
+    </section>
+
+    <!-- WORKSPACE -->
+    <section id="viewWorkspace" class="app-view">
+      <div class="workspace-titlebar">
+        <div><button class="back-link" id="backToScan">← Portfolio</button><p id="workspaceKicker" class="eyebrow"></p><h1 id="workspaceTitle">Đang tải…</h1><p id="workspaceDesc"></p></div>
+        <div class="workspace-actions"><div id="workspaceStatus"></div><button class="btn ghost" id="openReportBtn">Mở báo cáo</button><button class="btn primary" id="replanBtn">↻ AI lập lại kế hoạch</button></div>
+      </div>
+
+      <div class="workspace-grid">
+        <div class="workspace-main">
+          <article class="surface-card resource-map-card">
+            <div class="card-head"><div><p class="eyebrow">Physical flow</p><h3>Dòng tài nguyên A → B</h3></div><span class="muted-tag">Dữ liệu thật của hồ sơ</span></div>
+            <div id="resourceMap" class="resource-map"></div>
+          </article>
+
+          <article class="surface-card liveflow-card" id="liveFlowCard">
+            <div class="card-head liveflow-head"><div><p class="eyebrow">NexusLoop Live Flow</p><h3>Quan sát hệ thống biến đổi dữ liệu thành quyết định</h3><p>Bấm từng bước để xem đầu vào, đầu ra, bằng chứng và điểm chặn.</p></div><div class="live-controls"><span id="flowRunBadge" class="muted-tag">Current state</span><button id="replayBtn" class="btn ghost small">▶ Phát lại</button></div></div>
+            <div id="liveFlow" class="live-flow"></div>
+            <div id="executionRail" class="execution-rail"></div>
+          </article>
+
+          <div class="metrics-grid" id="decisionMetrics"></div>
+
+          <div class="workspace-tabs" id="workspaceTabs"><button data-pane="evidence" class="is-active">Bằng chứng</button><button data-pane="compatibility">Đối chiếu</button><button data-pane="data">Dữ liệu & tài liệu</button><button data-pane="approval">Phê duyệt</button></div>
+
+          <section id="paneEvidence" class="workspace-pane is-visible">
+            <article class="surface-card"><div class="card-head"><div><p class="eyebrow">Evidence queue</p><h3>Bằng chứng nào đáng kiểm tra tiếp theo?</h3></div><span id="nextEvidenceTag" class="focus-tag">AI priority</span></div><div id="evidenceQueue" class="evidence-queue"></div></article>
+            <article class="surface-card"><div class="card-head"><div><p class="eyebrow">Human override</p><h3>Con người có thể thay đổi kế hoạch</h3></div></div><div class="inline-form"><select id="overrideCandidate"></select><input id="overrideReason" placeholder="Lý do chọn khác đề xuất AI…"><button id="overrideBtn" class="btn primary">Dùng kế hoạch này</button><button id="addConstraintBtn" class="btn ghost">+ Điều kiện mới</button></div></article>
+          </section>
+
+          <section id="paneCompatibility" class="workspace-pane"><article class="surface-card"><div class="card-head"><div><p class="eyebrow">Compatibility engine</p><h3>A có gì ↔ B cần gì</h3></div></div><div id="compatibilityMatrix" class="compatibility-matrix"></div></article></section>
+
+          <section id="paneData" class="workspace-pane">
+            <div class="two-card-grid">
+              <article class="surface-card"><div class="card-head"><div><p class="eyebrow">Source A</p><h3 id="supplierName">Nhà máy A</h3></div><button class="text-btn profile-edit" data-side="supplier">Chỉnh dữ liệu</button></div><div id="supplierProfile" class="profile-grid"></div></article>
+              <article class="surface-card"><div class="card-head"><div><p class="eyebrow">Demand B</p><h3 id="receiverName">Nhà máy B</h3></div><button class="text-btn profile-edit" data-side="receiver">Chỉnh dữ liệu</button></div><div id="receiverProfile" class="profile-grid"></div></article>
+            </div>
+            <article class="surface-card"><div class="card-head"><div><p class="eyebrow">Documents</p><h3>Đầu vào đã được hệ thống đọc</h3></div><span id="documentCount" class="muted-tag">0 tệp</span></div><div id="documentList" class="document-list"></div><form id="uploadForm" class="upload-zone"><div><b>+ Thêm tài liệu mới</b><small>JSON · CSV · TXT · PDF, tối đa 5 MB</small></div><select id="documentOwner"><option value="shared">Hồ sơ A ↔ B</option><option value="supplier">Bên A</option><option value="receiver">Bên B</option><option value="expert">Chuyên gia</option></select><input id="documentFile" type="file" accept=".json,.csv,.txt,.pdf"><button class="btn primary" type="submit">Đọc & phân tích</button><a href="/api/sample-input" class="sample-link">Hồ sơ mẫu ↓</a></form></article>
+          </section>
+
+          <section id="paneApproval" class="workspace-pane"><div class="two-card-grid"><article class="surface-card"><div class="card-head"><div><p class="eyebrow">Human gates</p><h3>Phê duyệt bắt buộc</h3></div></div><div id="approvalList" class="approval-list"></div></article><article class="surface-card"><div class="card-head"><div><p class="eyebrow">Custom constraints</p><h3>Điều kiện do người vận hành thêm</h3></div><button id="addConstraintBtn2" class="text-btn">+ Thêm</button></div><div id="constraintList" class="constraint-list"></div></article></div></section>
+        </div>
+
+        <aside class="inspector-column">
+          <article class="surface-card sticky-card inspector-card"><div class="card-head"><div><p class="eyebrow">Inspector</p><h3 id="inspectorTitle">Chọn một bước</h3></div><span id="inspectorState" class="state-dot"></span></div><div id="inspectorBody" class="inspector-body"><div class="empty-inspector"><div class="empty-orbit">◎</div><p>Bấm vào một node trong Live Flow để xem hệ thống đã nhận gì, làm gì và trả ra gì.</p></div></div></article>
+        </aside>
+      </div>
+    </section>
+
+    <!-- DECISION -->
+    <section id="viewDecision" class="app-view">
+      <div class="page-heading"><div><p class="eyebrow">Decision Studio</p><h1>Kết quả cuối phải truy ngược được về dữ liệu nguồn.</h1><p>Mỗi kết luận quan trọng đều có đường dẫn về phép tính, trạng thái gate và bằng chứng đã tạo ra nó.</p></div><div class="page-actions"><button id="decisionReportBtn" class="btn primary">Mở Decision Pack ↗</button></div></div>
+      <div class="decision-layout">
+        <section class="decision-main">
+          <article class="decision-hero" id="decisionHero"></article>
+          <article class="surface-card"><div class="card-head"><div><p class="eyebrow">Decision graph</p><h3>Vì sao hệ thống đi tới kết luận này?</h3></div></div><div id="decisionGraph" class="decision-graph"></div></article>
+          <article class="surface-card"><div class="card-head"><div><p class="eyebrow">Data lineage</p><h3>Con số này đến từ đâu?</h3></div><span class="muted-tag">Click để truy nguyên</span></div><div id="provenanceList" class="provenance-list"></div></article>
+        </section>
+        <aside class="decision-side">
+          <article class="surface-card"><div class="card-head"><div><p class="eyebrow">What-if simulator</p><h3>Thử thay đổi đầu vào</h3></div><span class="muted-tag">Không ghi vào hồ sơ</span></div><div id="simulator" class="simulator"></div></article>
+          <article class="surface-card"><div class="card-head"><div><p class="eyebrow">Open risks</p><h3>Điều gì còn ngăn pilot?</h3></div></div><div id="openRisks" class="risk-list"></div></article>
+        </aside>
+      </div>
+    </section>
+
+    <!-- COMMAND CENTER -->
+    <section id="viewCommand" class="app-view">
+      <div class="page-heading"><div><p class="eyebrow">NexusLoop Command Center</p><h1>AI, rules, lỗi và lịch sử thực thi — trong một nơi.</h1><p>Đây là mặt vận hành: biết provider nào đang chạy, bước nào thất bại, ảnh hưởng tới đâu và có thể khôi phục như thế nào.</p></div></div>
+      <div class="command-kpis" id="commandKpis"></div>
+      <div class="command-grid">
+        <div class="command-main">
+          <article class="surface-card"><div class="card-head"><div><p class="eyebrow">AI router</p><h3>Provider & fallback</h3></div><span id="commandAiStatus" class="live-pill">CHECKING</span></div><div id="providerFlow" class="provider-flow"></div></article>
+          <article class="surface-card"><div class="card-head"><div><p class="eyebrow">Execution history</p><h3>Các lần chạy gần nhất</h3></div><button id="refreshRunsBtn" class="text-btn">Làm mới</button></div><div id="runHistory" class="run-history"></div></article>
+        </div>
+        <aside class="command-side">
+          <article class="surface-card"><div class="card-head"><div><p class="eyebrow">Failure map</p><h3>Lỗi nằm ở đâu?</h3></div></div><div id="failureMap" class="failure-map"></div></article>
+          <article class="surface-card"><div class="card-head"><div><p class="eyebrow">Autonomy boundary</p><h3>AI được phép làm gì?</h3></div></div><div class="autonomy-list"><div><span>Đọc & chuẩn hóa dữ liệu</span><b class="auto">TỰ ĐỘNG</b></div><div><span>Đối chiếu & xếp hạng bằng chứng</span><b class="auto">TỰ ĐỘNG</b></div><div><span>Lập lại kế hoạch</span><b class="auto">TỰ ĐỘNG</b></div><div><span>Xác nhận pháp lý / kỹ thuật</span><b class="human">CON NGƯỜI</b></div><div><span>Phê duyệt pilot</span><b class="human">CON NGƯỜI</b></div><div><span>Ghi đè hard gate STOP</span><b class="deny">KHÔNG ĐƯỢC PHÉP</b></div></div></article>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+  <div id="operationOverlay" class="operation-overlay" hidden><div class="operation-box"><div class="op-spinner"></div><div><p class="eyebrow">NexusLoop is working</p><h3 id="operationTitle">Đang xử lý…</h3><p id="operationDetail">Dữ liệu đang được chuyển qua các lớp xử lý thật của hệ thống.</p></div></div></div>
+
+  <dialog id="evidenceDialog" class="dialog"><form method="dialog" class="dialog-card"><button class="dialog-x" value="cancel">×</button><p class="eyebrow">Submit evidence</p><h2 id="evidenceDialogTitle">Bằng chứng</h2><p id="evidenceDialogDesc"></p><input type="hidden" id="evidenceId"><label>Kết quả</label><div class="segmented"><label><input type="radio" name="evidenceOutcome" value="PASS" checked><span>PASS</span></label><label><input type="radio" name="evidenceOutcome" value="HOLD"><span>HOLD</span></label><label><input type="radio" name="evidenceOutcome" value="STOP"><span>STOP</span></label></div><label>Nguồn</label><input id="evidenceSource" value="Xác nhận chuyên gia / tài liệu kiểm chứng"><label>Ghi chú</label><textarea id="evidenceNote" rows="3" placeholder="Điều gì đã được xác minh?"></textarea><div class="dialog-actions"><button value="cancel" class="btn ghost">Hủy</button><button type="button" id="submitEvidenceBtn" class="btn primary">Ghi bằng chứng & chạy lại</button></div></form></dialog>
+
+  <dialog id="profileDialog" class="dialog"><form method="dialog" class="dialog-card"><button class="dialog-x" value="cancel">×</button><p class="eyebrow">Human data correction</p><h2 id="profileDialogTitle">Chỉnh hồ sơ</h2><input type="hidden" id="profileSide"><label>Trường dữ liệu</label><select id="profileField"></select><label>Giá trị mới</label><input id="profileValue"><label>Lý do chỉnh</label><textarea id="profileReason" rows="3">Cập nhật sau khi kiểm tra dữ liệu nguồn</textarea><div class="dialog-actions"><button value="cancel" class="btn ghost">Hủy</button><button type="button" id="saveProfileBtn" class="btn primary">Lưu & tính lại</button></div></form></dialog>
+
+  <dialog id="constraintDialog" class="dialog"><form method="dialog" class="dialog-card"><button class="dialog-x" value="cancel">×</button><p class="eyebrow">Human constraint</p><h2>Thêm điều kiện mới</h2><label>Tên điều kiện</label><input id="constraintLabel" placeholder="Ví dụ: Kiểm tra ăn mòn"><label>Mô tả</label><textarea id="constraintDescription" rows="4" placeholder="Điều gì phải được xác minh?"></textarea><label class="checkline"><input id="constraintHard" type="checkbox"><span>Đây là điều kiện bắt buộc (hard gate)</span></label><div class="dialog-actions"><button value="cancel" class="btn ghost">Hủy</button><button type="button" id="saveConstraintBtn" class="btn primary">Thêm vào quyết định</button></div></form></dialog>
+
+  <dialog id="guidedDialog" class="dialog guided-dialog"><div class="dialog-card guided-card"><button class="dialog-x" id="closeGuided">×</button><div class="guided-progress"><span id="guidedProgress"></span></div><p class="eyebrow">Guided product demo</p><h2 id="guidedTitle">NexusLoop bắt đầu từ dữ liệu thật.</h2><p id="guidedText"></p><div id="guidedVisual" class="guided-visual"></div><div class="dialog-actions"><button id="guidedPrev" class="btn ghost">← Trước</button><button id="guidedNext" class="btn primary">Tiếp theo →</button></div></div></dialog>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
