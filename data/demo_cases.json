@@ -1,0 +1,428 @@
+{
+  "cases": [
+    {
+      "id": "water-reuse-ab",
+      "title": "Tái sử dụng nước sau xử lý: Nhà máy A → Nhà máy B",
+      "short_title": "Nước sau xử lý A → B",
+      "resource": "Nước sau xử lý",
+      "supplier": "Nhà máy A",
+      "receiver": "Nhà máy B",
+      "location": "KCN giả lập tại Việt Nam",
+      "scenario_label": "Dự án mẫu · dữ liệu mô phỏng",
+      "synthetic": true,
+      "description": "Nhà máy A có nước sau xử lý đang được xả theo tuyến hiện tại. Nhà máy B ở cùng khu công nghiệp có nhu cầu nước kỹ thuật. NexusLoop đọc hồ sơ hai bên, đối chiếu mức phù hợp, tìm khoảng trống bằng chứng, lập kế hoạch kiểm tra theo giá trị quyết định và chỉ đưa hồ sơ sang pilot khi các điều kiện bắt buộc cùng phê duyệt con người đã đầy đủ.",
+      "supplier_profile": {
+        "company": "Nhà máy A",
+        "resource_name": "Nước sau xử lý",
+        "process_source": "Hệ thống xử lý nước thải sau công đoạn sản xuất",
+        "quantity_per_day": 600,
+        "quantity_unit": "m³/ngày",
+        "schedule": "24/7, biến động theo ca",
+        "stability": "Tương đối liên tục; cần xác minh biến động 30 ngày",
+        "current_route": "Xả theo tuyến hiện tại sau xử lý",
+        "location": "Khu A · KCN giả lập",
+        "quality": {
+          "pH": 7.2,
+          "TSS": 22,
+          "COD": null,
+          "conductivity": null,
+          "temperature": 31
+        },
+        "facts": [
+          {
+            "key": "a-flow",
+            "label": "Lưu lượng trung bình",
+            "value": 600,
+            "unit": "m³/ngày",
+            "source": "Báo cáo dòng nước mô phỏng",
+            "confidence": "high",
+            "confirmed_by_human": true
+          },
+          {
+            "key": "a-schedule",
+            "label": "Lịch phát sinh",
+            "value": "24/7, biến động theo ca",
+            "source": "Nhật ký vận hành mô phỏng",
+            "confidence": "medium",
+            "confirmed_by_human": false
+          }
+        ]
+      },
+      "receiver_profile": {
+        "company": "Nhà máy B",
+        "intended_use": "Nước kỹ thuật cho công đoạn rửa thiết bị, không dùng cho ăn uống",
+        "demand_per_day": 450,
+        "demand_unit": "m³/ngày",
+        "schedule": "2 ca/ngày, nhu cầu cao nhất 07:00–19:00",
+        "continuity_requirement": "Cần nguồn ổn định; có thể dùng nguồn dự phòng trong thời gian ngắn",
+        "location": "Khu B · KCN giả lập",
+        "quality_requirements": {
+          "pH": {
+            "min": 6.5,
+            "max": 8.5,
+            "unit": ""
+          },
+          "TSS": {
+            "max": 30,
+            "unit": "mg/L"
+          },
+          "COD": {
+            "max": 50,
+            "unit": "mg/L"
+          },
+          "conductivity": {
+            "max": 1500,
+            "unit": "µS/cm"
+          },
+          "temperature": {
+            "max": 35,
+            "unit": "°C"
+          }
+        },
+        "facts": [
+          {
+            "key": "b-demand",
+            "label": "Nhu cầu nước kỹ thuật",
+            "value": 450,
+            "unit": "m³/ngày",
+            "source": "Bảng nhu cầu mô phỏng",
+            "confidence": "high",
+            "confirmed_by_human": true
+          },
+          {
+            "key": "b-use",
+            "label": "Mục đích sử dụng",
+            "value": "Rửa thiết bị",
+            "source": "SOP mô phỏng",
+            "confidence": "high",
+            "confirmed_by_human": true
+          }
+        ]
+      },
+      "documents": [
+        {
+          "id": "doc-a-profile",
+          "filename": "A_resource_profile.json",
+          "owner": "supplier",
+          "kind": "json",
+          "simulated": true,
+          "uploaded_at": "2026-10-04T12:00:00+00:00",
+          "summary": "Hồ sơ nguồn A: lưu lượng, lịch vận hành và tuyến hiện tại.",
+          "extracted_fact_keys": [
+            "quantity_per_day",
+            "schedule",
+            "stability"
+          ],
+          "text_excerpt": "Synthetic supplier resource profile"
+        },
+        {
+          "id": "doc-b-requirements",
+          "filename": "B_input_requirements.json",
+          "owner": "receiver",
+          "kind": "json",
+          "simulated": true,
+          "uploaded_at": "2026-10-04T12:00:00+00:00",
+          "summary": "Yêu cầu đầu vào B: nhu cầu, mục đích sử dụng và 5 chỉ tiêu chất lượng.",
+          "extracted_fact_keys": [
+            "demand_per_day",
+            "intended_use",
+            "quality_requirements"
+          ],
+          "text_excerpt": "Synthetic receiver input requirements"
+        }
+      ],
+      "compatibility": [],
+      "gates": [
+        {
+          "id": "economics",
+          "label": "Kinh tế sơ bộ",
+          "domain": "economics",
+          "status": "PASS",
+          "source": "Sàng lọc mô phỏng",
+          "note": "Giá trị sơ bộ dương; phải tính lại sau khi có báo giá kỹ thuật.",
+          "human_required": false,
+          "hard_gate": false
+        },
+        {
+          "id": "infrastructure",
+          "label": "Hạ tầng sơ bộ",
+          "domain": "engineering",
+          "status": "PASS",
+          "source": "Sơ đồ KCN mô phỏng",
+          "note": "Khoảng cách và điểm đấu nối sơ bộ cho phép tiếp tục đánh giá.",
+          "human_required": false,
+          "hard_gate": false
+        },
+        {
+          "id": "legal",
+          "label": "Đường pháp lý / phân loại sử dụng",
+          "domain": "legal",
+          "status": "UNKNOWN",
+          "human_required": true,
+          "hard_gate": true
+        },
+        {
+          "id": "quality",
+          "label": "Chất lượng nước mục tiêu",
+          "domain": "quality",
+          "status": "UNKNOWN",
+          "human_required": true,
+          "hard_gate": true
+        },
+        {
+          "id": "continuity",
+          "label": "Tính liên tục nguồn cung",
+          "domain": "continuity",
+          "status": "UNKNOWN",
+          "human_required": false,
+          "hard_gate": false
+        },
+        {
+          "id": "engineering",
+          "label": "Khảo sát kỹ thuật & báo giá",
+          "domain": "engineering",
+          "status": "UNKNOWN",
+          "human_required": true,
+          "hard_gate": false
+        }
+      ],
+      "candidates": [
+        {
+          "id": "legal-review",
+          "label": "Xác minh đường pháp lý / phân loại sử dụng",
+          "domain": "legal",
+          "description": "Kiểm tra xem việc chuyển và sử dụng nước cho mục đích đã khai báo có bị chặn hoặc cần thủ tục bổ sung hay không.",
+          "gate_id": "legal",
+          "prerequisites": [],
+          "hard_gate": true,
+          "downstream_dependencies": 4,
+          "uncertainty_level": "high",
+          "cost_index": 0.15,
+          "time_index": 0.15,
+          "cost_label": "Thấp",
+          "time_label": "1–2 ngày (demo)",
+          "source_hint": "Cán bộ môi trường / nguồn quy định đã kiểm tra",
+          "action_owner": "Cán bộ môi trường",
+          "rationale": [
+            "Nếu không đạt, toàn bộ đường A→B phải dừng trước khi tốn tiền cho xét nghiệm/khảo sát.",
+            "Bước này chặn nhiều bước phía sau và có chi phí xác minh tương đối thấp."
+          ],
+          "generated_from": [
+            "compatibility.legal",
+            "gate.legal"
+          ]
+        },
+        {
+          "id": "water-lab",
+          "label": "Bổ sung xét nghiệm các chỉ tiêu còn thiếu",
+          "domain": "quality",
+          "description": "Đo COD và conductivity để hoàn tất so sánh chất lượng đầu ra A với yêu cầu đầu vào B.",
+          "gate_id": "quality",
+          "prerequisites": [],
+          "hard_gate": true,
+          "downstream_dependencies": 3,
+          "uncertainty_level": "high",
+          "cost_index": 0.45,
+          "time_index": 0.4,
+          "cost_label": "Trung bình",
+          "time_label": "2–4 ngày (demo)",
+          "source_hint": "Phiếu kết quả phòng thử nghiệm",
+          "action_owner": "Phòng thử nghiệm / QA",
+          "rationale": [
+            "Hai chỉ tiêu chất lượng bắt buộc của B đang thiếu trong hồ sơ A.",
+            "Có thể xét nghiệm ngay, nhưng AI thường xếp sau kiểm tra pháp lý vì chi phí cao hơn và có nguy cơ trở thành chi phí chìm nếu đường pháp lý bị chặn."
+          ],
+          "generated_from": [
+            "compatibility.quality",
+            "receiver.quality_requirements"
+          ]
+        },
+        {
+          "id": "continuity-check",
+          "label": "Đối chiếu 30 ngày lưu lượng & lịch vận hành",
+          "domain": "continuity",
+          "description": "So sánh biến động nguồn A với nhu cầu theo ca của B và kiểm tra phương án nguồn dự phòng.",
+          "gate_id": "continuity",
+          "prerequisites": [],
+          "hard_gate": false,
+          "downstream_dependencies": 2,
+          "uncertainty_level": "high",
+          "cost_index": 0.2,
+          "time_index": 0.25,
+          "cost_label": "Thấp",
+          "time_label": "1–2 ngày (demo)",
+          "source_hint": "Nhật ký lưu lượng + lịch vận hành",
+          "action_owner": "Điều phối vận hành hai nhà máy",
+          "rationale": [
+            "Số lượng trung bình phù hợp nhưng độ ổn định chưa được chứng minh.",
+            "Có thể kiểm tra song song, nhưng thường ít khả năng giết dự án sớm hơn điều kiện pháp lý và chất lượng."
+          ],
+          "generated_from": [
+            "compatibility.continuity"
+          ]
+        },
+        {
+          "id": "engineering-survey",
+          "label": "Khảo sát tuyến kết nối, bể chứa và báo giá",
+          "domain": "engineering",
+          "description": "Chốt đường ống/bơm/bể trung gian, CAPEX/OPEX và các thay đổi kỹ thuật trước pilot.",
+          "gate_id": "engineering",
+          "prerequisites": [
+            "legal",
+            "quality",
+            "continuity"
+          ],
+          "hard_gate": false,
+          "downstream_dependencies": 1,
+          "uncertainty_level": "medium",
+          "cost_index": 0.8,
+          "time_index": 0.75,
+          "cost_label": "Cao",
+          "time_label": "5–10 ngày (demo)",
+          "source_hint": "Kỹ sư quy trình + báo giá nhà thầu",
+          "action_owner": "Kỹ sư quy trình",
+          "rationale": [
+            "Cần thiết để chốt business case nhưng tốn kém hơn nên được làm sau khi các rủi ro có thể giết dự án đã được loại trừ."
+          ],
+          "generated_from": [
+            "gate.infrastructure",
+            "gate.economics"
+          ]
+        }
+      ],
+      "approvals": [
+        {
+          "role": "environmental_officer",
+          "label": "Xác nhận cán bộ môi trường",
+          "required": true,
+          "approved": false
+        },
+        {
+          "role": "process_engineer",
+          "label": "Xác nhận kỹ sư quy trình",
+          "required": true,
+          "approved": false
+        }
+      ],
+      "custom_constraints": [],
+      "audit": [],
+      "expected_resource_impact": "Tối đa 450 m³/ngày trong dữ liệu mô phỏng nếu pilot được phê duyệt",
+      "preliminary_value": "Khả quan sơ bộ; chưa phải business case đã xác minh"
+    },
+    {
+      "id": "safety-stop-demo",
+      "title": "Demo an toàn: điều kiện bắt buộc bị chặn",
+      "short_title": "Demo STOP an toàn",
+      "resource": "Phụ phẩm không nguy hại (mô phỏng)",
+      "supplier": "Nhà máy C",
+      "receiver": "Nhà máy D",
+      "location": "KCN giả lập tại Việt Nam",
+      "scenario_label": "Tình huống an toàn · mô phỏng",
+      "synthetic": true,
+      "description": "Tình huống riêng để chứng minh NexusLoop không cho phép người dùng hay AI ghi đè trực tiếp một điều kiện bắt buộc đã được xác minh là không đạt.",
+      "supplier_profile": {
+        "company": "Nhà máy C",
+        "resource_name": "Phụ phẩm mô phỏng",
+        "process_source": "Công đoạn C",
+        "quantity_per_day": 40,
+        "quantity_unit": "tấn/ngày",
+        "schedule": "Theo ca",
+        "stability": "Tương đối ổn định",
+        "current_route": "Xử lý hiện tại",
+        "location": "Khu C",
+        "quality": {},
+        "facts": []
+      },
+      "receiver_profile": {
+        "company": "Nhà máy D",
+        "intended_use": "Nguyên liệu phụ trợ mô phỏng",
+        "demand_per_day": 30,
+        "demand_unit": "tấn/ngày",
+        "schedule": "Theo ca",
+        "continuity_requirement": "Ổn định theo tuần",
+        "location": "Khu D",
+        "quality_requirements": {},
+        "facts": []
+      },
+      "documents": [],
+      "compatibility": [],
+      "gates": [
+        {
+          "id": "economics",
+          "label": "Kinh tế sơ bộ",
+          "domain": "economics",
+          "status": "PASS",
+          "source": "Sàng lọc mô phỏng",
+          "note": "Khả quan sơ bộ",
+          "human_required": false,
+          "hard_gate": false
+        },
+        {
+          "id": "infrastructure",
+          "label": "Hạ tầng sơ bộ",
+          "domain": "engineering",
+          "status": "PASS",
+          "source": "Sơ đồ mô phỏng",
+          "note": "Có thể khảo sát tiếp",
+          "human_required": false,
+          "hard_gate": false
+        },
+        {
+          "id": "legal",
+          "label": "Điều kiện pháp lý bắt buộc",
+          "domain": "legal",
+          "status": "STOP",
+          "source": "Quy tắc demo đã xác minh",
+          "note": "Đường triển khai hiện tại không được tiếp tục trong tình huống mô phỏng.",
+          "human_required": true,
+          "hard_gate": true
+        },
+        {
+          "id": "quality",
+          "label": "Chất lượng vật liệu",
+          "domain": "quality",
+          "status": "UNKNOWN",
+          "human_required": true,
+          "hard_gate": true
+        }
+      ],
+      "candidates": [
+        {
+          "id": "quality-test",
+          "label": "Phân tích chất lượng vật liệu",
+          "domain": "quality",
+          "description": "Bước kỹ thuật mô phỏng, nhưng không được mở khi hard gate đã STOP.",
+          "gate_id": "quality",
+          "prerequisites": [],
+          "hard_gate": true,
+          "downstream_dependencies": 1,
+          "uncertainty_level": "high",
+          "cost_index": 0.5,
+          "time_index": 0.4,
+          "cost_label": "Trung bình",
+          "time_label": "3 ngày",
+          "source_hint": "Lab",
+          "action_owner": "QA",
+          "rationale": [
+            "Không được thực hiện khi hard gate đã STOP."
+          ],
+          "generated_from": [
+            "compatibility.quality"
+          ]
+        }
+      ],
+      "approvals": [
+        {
+          "role": "environmental_officer",
+          "label": "Xác nhận cán bộ môi trường",
+          "required": true,
+          "approved": false
+        }
+      ],
+      "custom_constraints": [],
+      "audit": [],
+      "expected_resource_impact": "Không tính vì case bị STOP",
+      "preliminary_value": "Không áp dụng"
+    }
+  ]
+}

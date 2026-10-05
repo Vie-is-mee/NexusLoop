@@ -1,0 +1,47 @@
+{
+  "schema_version": "nexusloop.input.v1",
+  "case_metadata": {
+    "title": "Tái sử dụng nước sau xử lý: Nhà máy A → Nhà máy B",
+    "location": "KCN giả lập tại Việt Nam",
+    "description": "Hồ sơ đầu vào chuẩn cho demo NexusLoop. Dữ liệu hoàn toàn mô phỏng, dùng để kiểm thử luồng A → AI → B."
+  },
+  "supplier_profile": {
+    "company": "Nhà máy A",
+    "resource_name": "Nước sau xử lý",
+    "process_source": "Hệ thống xử lý nước thải sau công đoạn sản xuất",
+    "quantity_per_day": 640,
+    "quantity_unit": "m³/ngày",
+    "schedule": "24/7, biến động theo ca",
+    "stability": "Tương đối liên tục; cần xác minh biến động 30 ngày",
+    "current_route": "Xả theo tuyến hiện tại sau xử lý",
+    "location": "Khu A · KCN giả lập",
+    "quality": {
+      "pH": 7.2,
+      "TSS": 18.0,
+      "COD": null,
+      "conductivity": null,
+      "temperature": 30.0
+    }
+  },
+  "receiver_profile": {
+    "company": "Nhà máy B",
+    "intended_use": "Nước kỹ thuật cho công đoạn rửa thiết bị, không dùng cho ăn uống",
+    "demand_per_day": 480,
+    "demand_unit": "m³/ngày",
+    "schedule": "2 ca/ngày, nhu cầu cao nhất 07:00–19:00",
+    "continuity_requirement": "Cần nguồn ổn định; có thể dùng nguồn dự phòng trong thời gian ngắn",
+    "location": "Khu B · KCN giả lập",
+    "quality_requirements": {
+      "pH": {"min": 6.5, "max": 8.5, "unit": ""},
+      "TSS": {"max": 30, "unit": "mg/L"},
+      "COD": {"max": 50, "unit": "mg/L"},
+      "conductivity": {"max": 1500, "unit": "µS/cm"},
+      "temperature": {"max": 35, "unit": "°C"}
+    }
+  },
+  "demo_notes": [
+    "COD và conductivity cố tình để thiếu ở phía A để AI phát hiện khoảng trống bằng chứng.",
+    "Điều kiện pháp lý ban đầu vẫn UNKNOWN để hệ thống phải lập kế hoạch thu bằng chứng.",
+    "Không có dữ liệu thật của doanh nghiệp trong file này."
+  ]
+}

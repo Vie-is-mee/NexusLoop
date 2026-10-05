@@ -1,0 +1,3 @@
+TÀI LIỆU MÔ PHỎNG PHỤC VỤ DEMO
+Kết quả rà soát: đường triển khai không bị chặn trong phạm vi tình huống giả lập.
+Tài liệu này không phải ý kiến pháp lý và không đại diện cho quy định áp dụng ngoài đời thực.

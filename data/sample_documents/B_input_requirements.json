@@ -1,0 +1,13 @@
+{
+  "use": "Nước kỹ thuật cho công đoạn rửa thiết bị, không dùng cho ăn uống",
+  "demand_m3_day": 450,
+  "schedule": "2 ca/ngày, nhu cầu cao nhất 07:00–19:00",
+  "required_continuity": "Cần nguồn ổn định; có thể dùng nguồn dự phòng trong thời gian ngắn",
+  "quality_requirements": {
+    "pH": {"min": 6.5, "max": 8.5, "unit": ""},
+    "TSS": {"max": 30, "unit": "mg/L"},
+    "COD": {"max": 50, "unit": "mg/L"},
+    "conductivity": {"max": 1500, "unit": "µS/cm"},
+    "temperature": {"max": 35, "unit": "°C"}
+  }
+}

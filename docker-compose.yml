@@ -1,0 +1,7 @@
+services:
+  nexusloop:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      NEXUSLOOP_ENV: demo

@@ -1,0 +1,16 @@
+[project]
+name = "nexusloop-demo"
+version = "1.0.0"
+description = "Agentic Evidence-to-Pilot layer for industrial symbiosis"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.116,<0.117",
+  "uvicorn[standard]>=0.35,<0.36",
+  "pydantic>=2.11,<3",
+  "python-multipart>=0.0.20,<0.1",
+  "pypdf>=5.9,<6",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

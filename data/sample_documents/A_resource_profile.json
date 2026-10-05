@@ -1,0 +1,7 @@
+{
+  "source_process": "Hệ thống xử lý nước thải sau công đoạn sản xuất",
+  "flow_m3_day": 600,
+  "schedule": "24/7, biến động theo ca",
+  "supply_stability": "Tương đối liên tục; cần xác minh biến động 30 ngày",
+  "quality": {"pH": 7.2, "TSS": 22, "temperature": 31}
+}
